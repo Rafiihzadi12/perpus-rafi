@@ -11,6 +11,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
+
         $query =  Buku::query();
         $buku =  $query->count();
 
@@ -24,6 +25,8 @@ class DashboardController extends Controller
     public function getChartPenerbit()
     {
         $chartData = Penerbit::all();
+        $chartData = Penulis::all();
+        
 
         $formattedData = [];
 

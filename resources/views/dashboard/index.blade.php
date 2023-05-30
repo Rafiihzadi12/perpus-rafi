@@ -1,5 +1,9 @@
 @extends('layouts.main')
 
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+@endsection
+
 @section('content')
 
  <div class="content">
@@ -11,6 +15,8 @@
     <div class="card-body">
         <div class="row">
           <div class="col-lg-3 col-6">
+
+          
 
             <div class="small-box bg-info">
               <div class="inner">
