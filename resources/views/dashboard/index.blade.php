@@ -5,7 +5,7 @@
  <div class="content">
     <div class="card card-primary">
     <div class="card-header">
-        <h2 class="card-title">Rekap</h2>
+        <h2 class="card-title">Rekapp</h2>
     </div>
 
     <div class="card-body">
