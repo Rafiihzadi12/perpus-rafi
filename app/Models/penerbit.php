@@ -35,4 +35,12 @@ class Penerbit extends Model
         return $buku;
     
     }
+    public static function getGrafiklist()
+    {
+        $data = [];
+        foreach (static::find()->all() as $penerbit) {
+            $data[] = [($penerbit->nama), (int) $penerbit->getPenerbitCount()];
+        }
+        return $data;
+    }
 }

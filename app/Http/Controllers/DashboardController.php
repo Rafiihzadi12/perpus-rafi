@@ -14,8 +14,7 @@ class DashboardController extends Controller
 
         $query =  Buku::query();
         $buku =  $query->count();
-
-
+        
         return view('dashboard.index', [
             'title' => 'Form login',
             'buku' => $buku,
@@ -24,9 +23,7 @@ class DashboardController extends Controller
 
     public function getChartPenerbit()
     {
-        $chartData = Penerbit::all();
-        $chartData = Penulis::all();
-        
+        $chartData = Penerbit::all();        
 
         $formattedData = [];
 
