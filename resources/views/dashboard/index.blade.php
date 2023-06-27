@@ -173,9 +173,7 @@ fetch('chart-penerbit', {
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>    
     <script>
-        
-                
-                Highcharts.chart('penulis', {
+      Highcharts.chart('penulis', {
                     chart: {
                         type: 'bar'
                     },
@@ -212,8 +210,8 @@ fetch('chart-penerbit', {
                         }
                     },
                     series: [{
-                        name: 'Buku',
-                        data: [10.14, 10.55, 12.44]
+                        name: 'Penulis',
+                        data: data
             
                     }] 
                 });
