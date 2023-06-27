@@ -23,17 +23,15 @@ class DashboardController extends Controller
 
     public function getChartPenerbit()
     {
-        $chartData = Penerbit::all();        
-
+        $chartData = Penerbit::all();   
         $formattedData = [];
-
-        foreach ($chartData as $data){
-             $formattedData[] = [
-                'name' => $data->name,
-                'y' => $data->value,
-            ];
-        }
-
+        foreach ($chartData as $data) {
+           $bukuCount = Buku::where('id_penerbit', $data->id)->count();
+           $formattedData[] = [
+               'name' => $data->nama,
+               'y' => $bukuCount,
+           ];
+       }
         return response()->json($formattedData);
     }
 }

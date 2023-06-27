@@ -102,16 +102,24 @@
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>       
 <script>
-    fetch: ('/chart-data',)
-    .then(response => response.json())
+fetch('chart-data', {
+  method: 'GET',
+  cache: 'default'
+})
+.then(response => {
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
+  return response.json();
+})
     .then(data => {
+        console.log(data);
     Highcharts.chart('penerbit', {
         chart: {
             type: 'column'
         },
         title: {
             text: 'Grafik Data Penerbit Buku'
-        
         },
         xAxis: {
            type : 'category'
@@ -135,8 +143,12 @@
             data: data 
         }]
     });
+})
+.catch(error => {
+  console.error('Error fetching chart data:', error);
+  // Provide user feedback here
 });
-    </script>
+</script>
 
 
     <div class="col-sm-6">
