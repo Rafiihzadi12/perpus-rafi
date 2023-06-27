@@ -248,6 +248,17 @@ fetch('chart-penulis', {
 
     <script src="https://code.highcharts.com/highcharts.js"></script>
 <script>
+    fetch('chart-kategori', {
+  method: 'GET',
+  cache: 'default'
+})
+.then(response => {
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
+  return response.json();
+})
+    .then(data => {
    Highcharts.chart('kategori', {
     chart: {
         plotBackgroundColor: null,
@@ -288,11 +299,12 @@ fetch('chart-penulis', {
                 format: '<b>{point.name}</b>: {point.percentage:.1f} %',
                 connectorColor: 'silver'
             }
+            }
         }
     },
     series: [{
-        name: 'Share',
-        data: [
+        name: 'Buku',
+        data: data [ 
             { name: 'Self Improvement', 
                 y: 5.99,
                 drilldown: true,  
@@ -306,6 +318,7 @@ fetch('chart-penulis', {
             { name: 'Sastra', 
                 y: 4.86 
             },
+            
         ]
     }]
 });

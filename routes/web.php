@@ -118,6 +118,8 @@ Route::get('/export-anggota', [AnggotaController::class, 'exportExcel']);
 //Dashboard
 Route::get('/chart-penerbit', [DashboardController::class, 'getChartPenerbit'])->name('chart-penerbit');
 Route::get('/chart-penulis', [DashboardController::class, 'getChartPenulis'])->name('chart-penulis');
+Route::get('/chart-kategori', [DashboardController::class, 'getChartKategori'])->name('chart-kategori');
+
 
 
 
