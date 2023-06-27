@@ -34,4 +34,17 @@ class DashboardController extends Controller
        }
         return response()->json($formattedData);
     }
+    public function getChartPenulis()
+    {
+        $chartData = Penulis::all();   
+        $formattedData = [];
+        foreach ($chartData as $data) {
+           $bukuCount = Buku::where('id_penulis', $data->id)->count();
+           $formattedData[] = [
+               'name' => $data->nama,
+               'y' => $bukuCount,
+           ];
+       }
+        return response()->json($formattedData);
+    }
 }
