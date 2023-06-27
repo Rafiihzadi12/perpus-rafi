@@ -172,10 +172,7 @@ fetch('chart-data', {
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>    
     <script>
-        $.ajax({
-            url: '/chart-data',
-            method: 'GET',
-            success: function (data) {
+        
                 
                 Highcharts.chart('penulis', {
                     chart: {
