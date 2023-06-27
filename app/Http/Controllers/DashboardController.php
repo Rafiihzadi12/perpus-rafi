@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Buku;
 use App\Models\Penerbit;
+use App\Models\Penulis;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 

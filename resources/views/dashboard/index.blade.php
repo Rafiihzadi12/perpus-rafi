@@ -114,7 +114,6 @@ fetch('chart-penerbit', {
   return response.json();
 })
     .then(data => {
-        console.log(data);
     Highcharts.chart('penerbit', {
         chart: {
             type: 'column'
@@ -170,10 +169,21 @@ fetch('chart-penerbit', {
         </div>
     </div>
 
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>    
-    <script>
-        
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>    
+<script>
+
+fetch('chart-penulis', {
+  method: 'GET',
+  cache: 'default'
+})
+.then(response => {
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
+  return response.json();
+})
+    .then(data => {
       Highcharts.chart('penulis', {
                     chart: {
                         type: 'bar'
@@ -185,9 +195,7 @@ fetch('chart-penerbit', {
                         text: ''
                     },
                     xAxis: {
-                        categories: [
-                            
-                        ],
+      categories: [],
                         crosshair: true
                     },
                     yAxis: {
@@ -213,9 +221,9 @@ fetch('chart-penerbit', {
                     series: [{
                         name: 'Buku',
                         data: data
-            
                     }] 
                 });
+});
                 
             </script>
 
