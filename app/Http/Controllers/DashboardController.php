@@ -36,7 +36,6 @@ class DashboardController extends Controller
        }
         return response()->json($formattedData);
     }
-
     
     public function getChartPenulis()
     {
@@ -51,6 +50,8 @@ class DashboardController extends Controller
        }
         return response()->json($formattedData);
     }
+
+
     public function getChartKategori()
     {
         $chartData = Kategori::all();   
