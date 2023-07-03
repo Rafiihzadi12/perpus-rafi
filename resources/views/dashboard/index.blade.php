@@ -247,6 +247,7 @@ fetch('chart-penulis', {
     </div>
 
 <script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>    
 <script>
     // Fetch data from 'chart-penulis' endpoint
     fetch('chart-kategori', {
@@ -304,7 +305,7 @@ fetch('chart-penulis', {
     },
     series: [{
         name: 'Share',
-        data: data
+        data: data 
     }]
 });
     });

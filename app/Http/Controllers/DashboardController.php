@@ -6,6 +6,7 @@ use App\Models\Buku;
 use App\Models\Penerbit;
 use App\Models\Penulis;
 use App\Models\Kategori;
+use App\Models\Peminjaman;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -58,6 +59,20 @@ class DashboardController extends Controller
         $formattedData = [];
         foreach ($chartData as $data) {
            $bukuCount = Buku::where('id_kategori', $data->id)->count();
+           $formattedData[] = [
+               'name' => $data->nama,
+               'y' => $bukuCount,
+           ];
+       }
+        return response()->json($formattedData);
+    }
+
+    public function getChartPeminjaman()
+    {
+        $chartData = Peminjaman::all();   
+        $formattedData = [];
+        foreach ($chartData as $data) {
+           $bukuCount = Buku::where('id_peminjaman', $data->id)->count();
            $formattedData[] = [
                'name' => $data->nama,
                'y' => $bukuCount,
