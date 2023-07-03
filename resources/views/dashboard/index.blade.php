@@ -246,8 +246,23 @@ fetch('chart-penulis', {
         </div>
     </div>
 
-    <script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
 <script>
+    // Fetch data from 'chart-penulis' endpoint
+    fetch('chart-kategori', {
+  method: 'GET',
+  cache: 'default'
+})
+.then(response => {
+        // Check if the response is not ok
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
+        // Parse the response as JSON
+  return response.json();
+})
+    .then(data => {
+        // Create Highcharts chart
    Highcharts.chart('kategori', {
     chart: {
         plotBackgroundColor: null,
@@ -259,9 +274,7 @@ fetch('chart-penulis', {
         text: 'Kategori Buku'
     },
     xAxis: {
-        categories: [
-            'Ardhi Mohamad', 'Henry Manampiring', 'Arthur Conan Doyle'
-        ],
+        categories: [],
         crosshair: true
     },
     yAxis: {
@@ -277,7 +290,6 @@ fetch('chart-penulis', {
         point: {
             valueSuffix: '%'
         }
-
     },
     plotOptions: {
         pie: {
@@ -292,26 +304,11 @@ fetch('chart-penulis', {
     },
     series: [{
         name: 'Share',
-        data: [
-            { name: 'Self Improvement', 
-                y: 5.99,
-                drilldown: true,  
-            },
-            { name: 'Fiksi', 
-                y: 4.86 
-            },
-            { name: 'Komik', 
-                y: 4.86 
-            },
-            { name: 'Sastra', 
-                y: 4.86 
-            },
-        ]
+        data: data
     }]
 });
+    });
 </script>
 
 
 @endsection
-  
-  
